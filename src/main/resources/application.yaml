@@ -1,0 +1,29 @@
+app:
+  data:
+    dir: ./data
+
+spring:
+  application:
+    name: club
+  mvc:
+    problemdetails:
+      enabled: true
+  datasource:
+    url: jdbc:h2:file:${app.data.dir}/registrations
+  jpa:
+    hibernate:
+      ddl-auto: update
+  h2:
+    console:
+      enabled: true
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false
