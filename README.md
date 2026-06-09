@@ -124,7 +124,8 @@ make test
 - Authorization is not included in the spec - it will be better to pretect the endpoint. Depending on how the further development and the separation of clubs and the importanse of identifying users. We could either Authenticate users (Cognito/Spring Security + JWT), which is the propper way, or something simpler to just stopp spem or attackers like rate limit + cors. 
 - With expansion of members and clubs it can ie relevant to add a real Database like postgres which is often used with springboot applications. We mifht also need updates, delete as well so with a need for complete CRUD and som relations between the objects thins can be a good choise
 - Integration with the admin page. so the forms can be fetched directly. 
-- Create more tests. Test the entire service layer. Adding mock services and testing the controllers. Testing all validation. Add tests to the repository layer and test all eroor handling. 
+- Create more tests. Test the entire service layer. Adding mock services and testing the controllers. Testing all validation. Add tests to the repository layer and test all eroor handling.
+- Send email confirmation to the registered user. 
 
 ## Disclaimer
 Claude code helped me fix the last docker setup and was used to create a template with the techstack added and the structure for the Readme.md files. The reasoning is added by me.  
