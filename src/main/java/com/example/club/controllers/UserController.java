@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.example.club.dto.RegistrationDto;
 import com.example.club.dto.UserRegistration;
@@ -34,9 +35,12 @@ public class UserController {
             @Valid @RequestBody UserRegistration request) {
 
         RegistrationDto saved = userService.register(clubId, formId, request);
-        return ResponseEntity
-            .created(URI.create("/registrations/" + saved.id()))
-            .body(saved);
+        URI location = ServletUriComponentsBuilder
+            .fromCurrentRequest()
+            .path("/{id}")
+            .buildAndExpand(saved.id())
+            .toUri();
+        return ResponseEntity.created(location).body(saved);
     }
     
 
